@@ -1,0 +1,30 @@
+<html>
+<head></head>
+<body style="background-color:sky-blue; display:flex; justify-content:center; align-items:center">
+<h1 style="color:blue;" id="clock"></h1>
+<script>
+setInterval(function(){
+let date=new Date();
+let time={
+"h":date.getHours(),
+"m":date.getMinutes(),
+"s":date.getSeconds(),
+"tt":'AM'
+}
+if(time.h<10){
+time.h="0"+time.h;}
+if(time.m<10){
+time.m="0"+time.m;}
+if(time.s<10){
+time.s="0"+time.s;}
+if(time.h===12){time.tt='PM'}
+if(time.h>12){
+time.h-=12;
+time.h=time.h>10?time.h:"0"+time.h;
+time.tt='PM';
+}
+document.getElementById("clock").innerText=time.h+":"+time.m+":"+time.s+" "+time.tt;
+},1000)
+</script>
+</body>
+</html>
